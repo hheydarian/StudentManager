@@ -8,8 +8,4 @@
         <RootNamespace>StudentManager2</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Domain\" />
-    </ItemGroup>
-
 </Project>
