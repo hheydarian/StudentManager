@@ -4,28 +4,35 @@ namespace StudentManager2.Services;
 
 public class StudentService : IStudentService
 {
-    public void Add()
+    private readonly List<Student> _students = new();
+    public void Add(Student s)
     {
-
+        _students.Add(s);
     }
 
-    public void Delete()
+    public Student? FindByName(string name)
     {
-        throw new NotImplementedException();
+        return _students.FirstOrDefault(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
     }
 
-    public void GetAll()
+    public List<Student> GetAll()
     {
-        throw new NotImplementedException();
+        return _students.ToList();
     }
 
-    public void IsPassed()
+    public List<Student> GetPassed()
     {
-        throw new NotImplementedException();
+        return _students.Where(x => x.IsPassed).ToList();
     }
 
-    public List<Student> students()
+    public bool RemoveByName(string name)
     {
-        throw new NotImplementedException();
+        var found = _students.FirstOrDefault(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+        if (found != null)
+        {
+            _students.Remove(found);
+            return true;
+        }
+        return false;
     }
 }

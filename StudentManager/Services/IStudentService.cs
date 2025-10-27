@@ -4,9 +4,9 @@ namespace StudentManager2.Services;
 
 public interface IStudentService
 {
-    public List<Student> students();
-    public void Add();
-    public void GetAll();
-    public void Delete();
-    public void IsPassed();
+    void Add(Student s);
+    bool RemoveByName(string name);
+    Student? FindByName(string name);
+    List<Student> GetAll();
+    List<Student> GetPassed();
 }

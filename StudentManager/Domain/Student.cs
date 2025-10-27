@@ -15,8 +15,13 @@ public class Student : Person
             _score = value;
         }
     }
+    public bool IsPassed => Score >= 12;
     public Student(string name, int age, decimal score) : base(name, age)
     {
         Score = score;
+    }
+    public void PrintInfo()
+    {
+        Console.WriteLine($"Name: {Name}, Age: {Age}, Score: {Score} Passed: {IsPassed}");
     }
 }
